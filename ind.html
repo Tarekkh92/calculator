@@ -1,0 +1,237 @@
+<style>
+    /**
+Code By Web Dev Trick ( https://webdevtrick.com )
+For More Source Code Visit Our Blog ( https://webdevtrick.com )
+**/
+ 
+body, html {
+    background: lightgray;
+    margin: 0;
+    padding: 0;
+}
+ 
+.container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: black;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.2);
+    border-radius: 14px;
+    padding-bottom: 20px;
+    width: 320px;
+    
+}
+.display {
+    width: 100%;
+    height: 100px;
+    padding: 40px 0;
+    background:orange;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+}
+.buttons {
+    padding: 20px 20px 0 20px;
+}
+.row {
+    width: 280px;
+    float: left;
+}
+input[type=button] {
+    width: 60px;
+    height: 60px;
+    float: left;
+    padding: 0;
+    margin: 5px;
+    box-sizing: border-box;
+    background: #ecedef;
+    border: none;
+    font-size: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    font-weight: 700;
+    color: #5E5858;
+    cursor: pointer;
+    
+}
+input[type=text] {
+    width: 270px;
+    height: 60px;
+    float: left;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    background: none;
+    color: #ffffff;
+    text-align: right;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 60px;
+    margin: 0 25px;
+    
+}
+.red {
+    background: #FF0509 !important;
+    color: #ffffff !important;
+    
+}
+.orangered{
+    background: orangered !important;
+    color: #ffffff !important;
+}
+.green{
+    background: green !important;
+    color: #ffffff !important;
+}
+.blue{
+    background: blue !important;
+    color: #ffffff !important;
+}
+.pink{
+    background: pink !important;
+    color: #ffffff !important;
+}
+
+    </style>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    </head>
+<body>
+    
+    <div class="container">
+        <form name="form">
+           
+            <!-- <input type="text"  placeholder="Result.." style="text-align: left; border:4px solid blue;" id="y"/> -->
+        <div class="display">
+            <input type="text"  placeholder="0" style="text-align: left; color: black;border:4px solid blue;margin-top:10px; width:90%;"id="x"/>
+            <input type="text" name="displayResult" pattern="[0-9]+" id="z" style="text-align: left;" />
+        </div>
+            <div class="buttons">
+              <div class="row">
+                <input type="button" id="b7" value="7" onClick="showValue('b7');">
+                  <input type="button" id="b8" value="8" onClick="showValue('b8');">
+                  <input type="button" id="b9" value="9" onClick="showValue('b9')">
+                  <input type="button" id="add" value="+" onClick="showValue('add')">
+                </div>
+                
+                <div class="row">
+                <input type="button" id="b4" value="4" onClick="showValue('b4')">
+                  <input type="button" id="b5" value="5" onClick="showValue('b5')">
+                  <input type="button" id="b6" value="6" onClick="showValue('b6')">
+                  <input type="button" id="subb" value="-" onClick="showValue('subb')">
+                </div>
+                
+                <div class="row">
+                <input type="button" id="b1" value="1" onClick="showValue('b1')">
+                  <input type="button" id="b2" value="2" onClick="showValue('b2')">
+                  <input type="button" id="b3" value="3" onClick="showValue('b3')">
+                  <input type="button" id="mulb" value="*" onClick="showValue('mulb')">
+                </div>
+                
+                <div class="row">
+                <input type="button" id="b0" value="0" onClick="showValue('b0')">
+                  <input type="button" id="potb" value="." onClick="showValue('prodb')">
+                  <input type="button" id="divb" value="/" onClick="showValue('divb')">
+                  <input type="button" class="red" value="=" onClick="getValue();">
+
+                
+                </div>
+                <div class="row">
+                    <input type="button"value="C" class="orangered" onClick="location.reload();">
+                    <input type="button"value="E" class="green" onClick="sF();">
+                    <input type="button"value="D" class="blue" onClick="Decimal();">
+                    <input type="button"value="sin()" class="pink" onClick="sin();">
+
+
+
+                    <!-- <input type="button" class="yellow" value="=" onClick="displayResult.value=eval(displayResult.value)"> -->
+
+                </div>
+            </div>
+        
+        </form>
+    </div>
+</body>
+    
+</html>
+
+
+<script>
+    
+//   $(document).ready(function() {
+//     var f = document.getElementById('z');
+//     setInterval(function() {
+//         f.style.display = (f.style.display == 'none' ? '' : 'none');
+//     }, 1000);
+
+// });
+
+function sF(){
+    var str=document.getElementById("x").value;
+    var num = parseFloat(str);
+    var num1= parseFloat(num.toExponential(4));
+    document.getElementById("x").value= num1;
+}
+function Decimal() {
+    var str=document.getElementById("x").value;
+    var num = parseFloat(str);
+    var num1= parseFloat(num).toFixed(20);
+    document.getElementById("x").value= num1;
+}
+function sin(){
+    var str=document.getElementById("x").value;
+    document.getElementById("x").value = Math.sin(str);
+
+}
+$(document).ready(function() {
+   document.getElementById('x').value="0"
+   document.getElementById("x").focus();
+
+   onMouseOver="this.style.cursor='pointer'"
+
+
+});
+
+document.getElementById("x").onclick = function() {clicked()};
+function clicked(){    document.getElementById('x').value="" 
+}
+
+function showValue(index){
+   var num= document. getElementById(index).value;
+   
+//    console.log(num);
+   document.getElementById("x").value += num;
+
+}
+
+     
+document.querySelector('#x').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      // code for enter
+      getValue();
+    }
+});
+    //     function calcNumbers(result){
+    //     form.displayResult.value=form.displayResult.value+result;
+    //     // getValue();
+        
+    // }
+
+    function getValue(){
+        var str=document.getElementById("x").value;
+        try {
+            var result= eval(str);
+            document.getElementById("x").value= result;
+            //.toExponential(4)
+        } catch (e) {
+            document.getElementById("x").value= e.lineNumber;
+}
+
+
+     
+      
+       
+}
+</script>
